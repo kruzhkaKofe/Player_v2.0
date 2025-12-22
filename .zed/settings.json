@@ -1,17 +1,8 @@
 {
   "project_name": "player_v2.0",
-  "languages": {
-    "Vue": {
-      "format_on_save": "on",
-      "formatter": "prettier"
-    },
-    "TypeScript": {
-      "format_on_save": "on",
-      "formatter": "prettier"
-    },
-    "JavaScript": {
-      "format_on_save": "on",
-      "formatter": "prettier"
-    }
-  }
+  "format_on_save": "on",
+  "formatter": [
+    { "code_action": "source.fixAll.eslint" },
+    { "code_action": "source.organizeImports" }
+  ],
 }
