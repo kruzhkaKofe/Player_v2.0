@@ -9,7 +9,8 @@
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
     "lint": "eslint .",
-    "lint:fix": "eslint . --fix"
+    "lint:fix": "eslint . --fix",
+    "prepare": "husky"
   },
   "dependencies": {
     "@nuxt/eslint": "^1.12.1",
@@ -21,5 +22,14 @@
   },
   "overrides": {
     "vite": "npm:rolldown-vite@latest"
+  },
+  "devDependencies": {
+    "husky": "^9.1.7",
+    "lint-staged": "^16.2.7"
+  },
+  "lint-staged": {
+    "*.{js,ts,vue,mjs,cjs}": [
+      "eslint --fix"
+    ]
   }
 }
