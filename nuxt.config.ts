@@ -9,7 +9,6 @@ export default defineNuxtConfig({
   },
   runtimeConfig: {
     clientId: '',
-    codeVerifier: '',
 
     public: {
       env: '',
