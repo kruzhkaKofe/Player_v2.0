@@ -25,6 +25,7 @@
     "vite": "npm:rolldown-vite@latest"
   },
   "devDependencies": {
+    "@types/node": "^25.0.3",
     "husky": "^9.1.7",
     "lint-staged": "^16.2.7"
   },
