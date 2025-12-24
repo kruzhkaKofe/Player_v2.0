@@ -36,7 +36,7 @@ export default defineEventHandler(event => {
   })
     .then(res => TokensSchema.parseAsync(res))
     .then(tokens => {
-      setTokens(event, tokens);
+      setTokens(event, tokens, config.public.env);
       deleteCookie(event, COOKIE_KEYS.codeVerifier);
       return sendRedirect(event, '/');
     })

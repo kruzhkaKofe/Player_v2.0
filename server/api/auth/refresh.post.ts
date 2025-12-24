@@ -26,7 +26,7 @@ export default defineEventHandler(event => {
     }),
   })
     .then(res => TokensSchema.parseAsync(res))
-    .then(tokens => setTokens(event, tokens))
+    .then(tokens => setTokens(event, tokens, config.public.env))
     .catch(() => {
       deleteCookie(event, COOKIE_KEYS.accessToken);
       deleteCookie(event, COOKIE_KEYS.refreshToken);

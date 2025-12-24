@@ -1,15 +1,17 @@
 import { COOKIE_KEYS } from '#shared/storageConsts';
 import type { Tokens } from '#shared/types/auth.types';
-import type { H3Event } from 'h3';
+import { setCookie, type H3Event } from 'h3';
 
-const config = useRuntimeConfig();
+export function setTokens(
+  event: H3Event,
+  tokens: Omit<Tokens, 'scope' | 'token_type'>,
+  env: string,
+) {
+  const generalCookieParams = {
+    httpOnly: true,
+    secure: env === 'production',
+  };
 
-const generalCookieParams = {
-  httpOnly: true,
-  secure: config.public.env === 'production',
-};
-
-export function setTokens(event: H3Event, tokens: Tokens) {
   const { access_token, refresh_token, expires_in } = tokens;
 
   setCookie(event, COOKIE_KEYS.accessToken, access_token, {
