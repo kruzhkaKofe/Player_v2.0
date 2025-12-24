@@ -1,4 +1,6 @@
-function getRandomString(length: number): string {
+export function getRandomString(length: number): string {
+  if (length <= 0) return '';
+
   const possible
     = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
   const values = crypto.getRandomValues(new Uint8Array(length));
@@ -8,14 +10,14 @@ function getRandomString(length: number): string {
   );
 }
 
-function base64Encode(input: ArrayBuffer): string {
+export function base64Encode(input: ArrayBuffer): string {
   return btoa(String.fromCharCode(...new Uint8Array(input)))
     .replace(/=/g, '')
     .replace(/\+/g, '-')
     .replace(/\//g, '_');
 }
 
-function sha256(plain: string): Promise<ArrayBuffer> {
+export function sha256(plain: string): Promise<ArrayBuffer> {
   const encoder = new TextEncoder();
   const data = encoder.encode(plain);
 
