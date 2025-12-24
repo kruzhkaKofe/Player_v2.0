@@ -2,7 +2,11 @@
 import { fileURLToPath } from 'node:url';
 
 export default defineNuxtConfig({
-  modules: ['@nuxt/test-utils', '@nuxt/eslint'],
+  modules: [
+    '@nuxt/test-utils',
+    '@nuxt/eslint',
+    '@pinia/nuxt',
+  ],
   devtools: { enabled: true },
   app: {
     head: {
