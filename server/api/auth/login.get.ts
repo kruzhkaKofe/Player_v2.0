@@ -1,5 +1,5 @@
-import { COOKIE_KEYS } from '#shared/storageConsts';
-import { MINUTE } from '#shared/timeConsts';
+import { COOKIE_KEYS } from '#shared/consts/storageConsts';
+import { MINUTE } from '#shared/consts/timeConsts';
 
 export default defineEventHandler(event => {
   const config = useRuntimeConfig(event);

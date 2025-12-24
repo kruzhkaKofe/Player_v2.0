@@ -1,6 +1,6 @@
 import { describe, test, expect, vi, beforeEach } from 'vitest';
 import { setTokens } from '#server/utils/setTokens';
-import { COOKIE_KEYS } from '#shared/storageConsts';
+import { COOKIE_KEYS } from '#shared/consts/storageConsts';
 import { setCookie, type H3Event } from 'h3';
 
 vi.mock('h3', () => ({

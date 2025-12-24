@@ -1,4 +1,4 @@
-import { COOKIE_KEYS } from '#shared/storageConsts';
+import { COOKIE_KEYS } from '#shared/consts/storageConsts';
 import { TokensSchema } from '#shared/types/auth.types';
 
 export default defineEventHandler(event => {

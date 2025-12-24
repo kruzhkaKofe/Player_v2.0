@@ -1,4 +1,4 @@
-import { COOKIE_KEYS } from '#shared/storageConsts';
+import { COOKIE_KEYS } from '#shared/consts/storageConsts';
 import type { Tokens } from '#shared/types/auth.types';
 import { setCookie, type H3Event } from 'h3';
 
