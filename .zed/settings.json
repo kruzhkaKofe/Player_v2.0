@@ -3,6 +3,5 @@
   "format_on_save": "on",
   "formatter": [
     { "code_action": "source.fixAll.eslint" },
-    { "code_action": "source.organizeImports" }
   ],
 }
