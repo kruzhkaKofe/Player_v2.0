@@ -38,6 +38,7 @@ export default defineNuxtConfig({
     '#pages': fileURLToPath(new URL('./app/pages', import.meta.url)),
     '#plugins': fileURLToPath(new URL('./app/plugins', import.meta.url)),
     '#utils': fileURLToPath(new URL('./app/utils', import.meta.url)),
+    '#stores': fileURLToPath(new URL('./app/stores', import.meta.url)),
   },
   compatibilityDate: '2025-07-15',
   eslint: {

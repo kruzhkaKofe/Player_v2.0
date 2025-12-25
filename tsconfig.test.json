@@ -16,6 +16,7 @@
       "#pages/*": ["./app/pages"],
       "#plugins/*": ["./app/plugins"],
       "#utils/*": ["./app/utils"],
+      "#stores/*": ["./app/stores"],
     }
   },
   "include": [
