@@ -71,12 +71,17 @@ export const useAuthStore = defineStore('auth', () => {
       });
   }
 
+  function getAccessToken() {
+    return $api('/api/auth/token');
+  }
+
   return {
     getAuth,
     getMe,
     login,
     logout,
     checkAuth,
+    getAccessToken,
   };
 });
 
