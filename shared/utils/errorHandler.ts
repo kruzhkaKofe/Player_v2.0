@@ -1,5 +1,5 @@
 import { z } from 'zod';
-
+import { createError } from 'h3';
 import {
   errorsTypes,
   SpotifyRegularErrorSchema,
