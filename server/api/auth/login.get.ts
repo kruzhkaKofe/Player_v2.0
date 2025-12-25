@@ -1,11 +1,10 @@
 import { COOKIE_KEYS } from '#shared/consts/storageConsts';
 import { MINUTE } from '#shared/consts/timeConsts';
+import { generateCodes } from '#server/utils/generateCodes';
 
 export default defineEventHandler(event => {
   const config = useRuntimeConfig(event);
 
-  const redirectUrl = config.public.redirectUrl;
-  const authUrl = config.public.spotifyAccountsUrl + '/authorize';
   const scope = [
     'user-read-private',
     'user-read-email',
@@ -30,10 +29,11 @@ export default defineEventHandler(event => {
         scope,
         code_challenge_method: 'S256',
         code_challenge: codeChallenge,
-        redirect_uri: redirectUrl,
+        redirect_uri: config.public.redirectUrl,
       });
 
-      const url = authUrl + `?${params.toString()}`;
+      const url = config.public.spotifyAccountsUrl + '/authorize' + `?${params.toString()}`;
+
       return sendRedirect(event, url);
     });
 });

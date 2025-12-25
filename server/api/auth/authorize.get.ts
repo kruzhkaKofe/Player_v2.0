@@ -1,5 +1,7 @@
 import { COOKIE_KEYS } from '#shared/consts/storageConsts';
 import { TokensSchema } from '#shared/types/auth.types';
+import { setTokens } from '#server/utils/setTokens';
+import { errorsTypes } from '#shared/types/errors.type';
 
 export default defineEventHandler(event => {
   const config = useRuntimeConfig(event);
@@ -15,7 +17,8 @@ export default defineEventHandler(event => {
   if (!code || !codeVerifier) {
     throw createError({
       statusCode: 400,
-      message: 'Unsuccess autorization attemp',
+      statusMessage: errorsTypes[400],
+      message: 'Unsuccessful authorization attempt',
     });
   }
 
