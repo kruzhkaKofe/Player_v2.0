@@ -3,6 +3,7 @@ import withNuxt from './.nuxt/eslint.config.mjs';
 
 export default withNuxt({
   rules: {
+    // stylistic
     '@stylistic/array-bracket-newline': ['error', 'consistent'],
     '@stylistic/array-element-newline': ['error', 'consistent'],
     '@stylistic/arrow-parens': ['error', 'as-needed'],
@@ -63,5 +64,8 @@ export default withNuxt({
     '@stylistic/type-named-tuple-spacing': 'error',
     '@stylistic/wrap-regex': 'error',
     '@stylistic/semi': ['error', 'always'],
+
+    // typescript
+    '@typescript-eslint/no-explicit-any': 'warn',
   },
 });
