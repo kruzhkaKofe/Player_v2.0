@@ -1,6 +1,6 @@
 import { COOKIE_KEYS } from '#shared/consts/storageConsts';
 import { MINUTE } from '#shared/consts/timeConsts';
-import { generateCodes } from '#server/utils/generateCodes';
+import { generatePKCECodes } from '#layers/auth/server/utils/generatePKCECodes';
 
 export default defineEventHandler(event => {
   const config = useRuntimeConfig(event);
@@ -13,7 +13,7 @@ export default defineEventHandler(event => {
     'streaming',
   ].join(' ');
 
-  return generateCodes()
+  return generatePKCECodes()
     .then(codes => {
       const { codeVerifier, codeChallenge } = codes;
 

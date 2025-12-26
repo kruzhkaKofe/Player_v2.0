@@ -16,22 +16,23 @@ export function createSpotifyApi(event: H3Event) {
       }
     },
 
-    onResponseError({ response, options, request }): any {
+    async onResponseError({ response, options, request }) {
       if (response.status !== 401) {
         return Promise.reject(response);
       }
 
-      return refreshSession(event)
-        .then(newTokens => {
-          options.headers = new Headers(options.headers);
-          options.headers.set('Authorization', `Bearer ${newTokens.access_token}`);
+      try {
+        const newTokens = await refreshSession(event);
 
-          return client(request, options);
-        })
-        .catch(e => {
-          clearSession(event);
-          errorHandler(e);
-        });
+        options.headers = new Headers(options.headers);
+        options.headers.set('Authorization', `Bearer ${newTokens.access_token}`);
+
+        return client(request, options);
+      }
+      catch (e) {
+        clearSession(event);
+        errorHandler(e);
+      }
     },
   }) as typeof $fetch;
 

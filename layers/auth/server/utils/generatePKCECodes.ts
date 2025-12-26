@@ -24,7 +24,7 @@ export function sha256(plain: string): Promise<ArrayBuffer> {
   return globalThis.crypto?.subtle.digest('SHA-256', data);
 }
 
-export function generateCodes() {
+export function generatePKCECodes() {
   const codeVerifier = getRandomString(64);
 
   return sha256(codeVerifier)

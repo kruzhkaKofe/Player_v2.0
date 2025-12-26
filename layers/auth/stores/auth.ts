@@ -1,4 +1,5 @@
 import { defaultMe } from '#shared/types/users.types';
+import { errorHandler } from '#shared/utils/errorHandler';
 
 const useAuthPrivateStore = defineStore('authPrivate', () => {
   const isAuth = ref(false);
@@ -22,7 +23,7 @@ const useAuthPrivateStore = defineStore('authPrivate', () => {
 
 export const useAuthStore = defineStore('auth', () => {
   const privateState = useAuthPrivateStore();
-  const { $api } = useNuxtApp();
+  const $api = useRequestFetch();
 
   const isLoading = ref(false);
 
@@ -35,16 +36,11 @@ export const useAuthStore = defineStore('auth', () => {
 
   function logout() {
     return $api('/api/auth/logout')
-      .then(() => {
-        privateState.setAuth(false);
-        navigateTo('/login');
-        return { success: true };
-      })
       .catch(e => {
-        console.error('Logout failed: ', e);
-        return { success: false };
+        errorHandler(e);
       })
       .finally(() => {
+        privateState.setAuth(false);
         privateState.setMe();
         navigateTo('/login');
       });
@@ -64,7 +60,7 @@ export const useAuthStore = defineStore('auth', () => {
       .catch(e => {
         privateState.setMe();
         privateState.setAuth(false);
-        throw e;
+        errorHandler(e);
       })
       .finally(() => {
         isLoading.value = false;

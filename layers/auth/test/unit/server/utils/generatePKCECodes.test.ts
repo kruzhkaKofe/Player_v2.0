@@ -1,9 +1,9 @@
 import {
   getRandomString,
-  generateCodes,
+  generatePKCECodes,
   sha256,
   base64Encode,
-} from '#server/utils/generateCodes';
+} from '#layers/auth/server/utils/generatePKCECodes';
 import { describe, test, expect } from 'vitest';
 
 describe('generateCodesModule', () => {
@@ -88,9 +88,9 @@ describe('generateCodesModule', () => {
     });
   });
 
-  describe('generateCodes', () => {
+  describe('generatePKCECodes', () => {
     test('должна возвращать объект с реальными строками без моков', async () => {
-      const result = await generateCodes();
+      const result = await generatePKCECodes();
 
       expect(result).toHaveProperty('codeVerifier');
       expect(result).toHaveProperty('codeChallenge');

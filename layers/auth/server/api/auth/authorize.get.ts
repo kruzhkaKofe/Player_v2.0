@@ -1,6 +1,6 @@
 import { COOKIE_KEYS } from '#shared/consts/storageConsts';
 import { TokensSchema } from '#shared/types/auth.types';
-import { setTokens } from '#server/utils/setTokens';
+import { setTokens } from '#layers/auth/server/utils/setTokens';
 import { errorsTypes } from '#shared/types/errors.type';
 
 export default defineEventHandler(event => {

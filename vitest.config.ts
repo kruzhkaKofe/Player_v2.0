@@ -8,7 +8,10 @@ export default defineConfig({
       {
         test: {
           name: 'unit',
-          include: ['test/{e2e,unit}/**/*.{test,spec}.ts'],
+          include: [
+            'test/{e2e,unit}/**/*.{test,spec}.ts',
+            'layers/**/test/{e2e,unit}/**/*.{test,spec}.ts',
+          ],
           environment: 'node',
           alias: {
             '#content': fileURLToPath(new URL('./content', import.meta.url)),
@@ -17,6 +20,7 @@ export default defineConfig({
             '#server': fileURLToPath(new URL('./server', import.meta.url)),
             '#shared': fileURLToPath(new URL('./shared', import.meta.url)),
             '#test': fileURLToPath(new URL('./test', import.meta.url)),
+            '#layers': fileURLToPath(new URL('./layers', import.meta.url)),
             '#assets': fileURLToPath(new URL('./app/assets', import.meta.url)),
             '#components': fileURLToPath(new URL('./app/components', import.meta.url)),
             '#composables': fileURLToPath(new URL('./app/composables', import.meta.url)),
@@ -32,7 +36,10 @@ export default defineConfig({
       await defineVitestProject({
         test: {
           name: 'nuxt',
-          include: ['test/nuxt/**/*.{test,spec}.ts'],
+          include: [
+            'test/nuxt/**/*.{test,spec}.ts',
+            'layers/**/test/nuxt/**/*.{test,spec}.ts',
+          ],
           environment: 'nuxt',
           alias: {
             '#content': fileURLToPath(new URL('./content', import.meta.url)),
@@ -41,6 +48,7 @@ export default defineConfig({
             '#server': fileURLToPath(new URL('./server', import.meta.url)),
             '#shared': fileURLToPath(new URL('./shared', import.meta.url)),
             '#test': fileURLToPath(new URL('./test', import.meta.url)),
+            '#layers': fileURLToPath(new URL('./layers', import.meta.url)),
             '#assets': fileURLToPath(new URL('./app/assets', import.meta.url)),
             '#components': fileURLToPath(new URL('./app/components', import.meta.url)),
             '#composables': fileURLToPath(new URL('./app/composables', import.meta.url)),
