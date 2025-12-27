@@ -8,7 +8,7 @@
 </template>
 
 <script setup lang="ts">
-import { useAuthStore } from '#stores/auth/auth';
+import { useAuthStore } from '#layers/auth/stores/auth';
 
 const authStore = useAuthStore();
 
