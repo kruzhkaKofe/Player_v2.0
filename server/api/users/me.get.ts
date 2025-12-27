@@ -6,11 +6,7 @@ export default defineEventHandler(event => {
   const api = createSpotifyApi(event);
 
   return api('/me')
-    .then(res => {
-      return meSchema.parseAsync(res);
-    })
-    .then(me => {
-      return me;
-    })
+    .then(res => meSchema.parseAsync(res))
+    .then(me => me)
     .catch(errorHandler);
 });
