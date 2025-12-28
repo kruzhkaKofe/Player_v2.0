@@ -1,5 +1,5 @@
 export default defineNuxtConfig({
-  extends: ['#layers/auth'],
+  extends: ['../auth'],
   typescript: {
     tsConfig: {
       compilerOptions: {
