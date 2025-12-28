@@ -1,9 +1,12 @@
 <template>
   <div>
     <h1>Login page</h1>
-    <button @click="login">
+    <SButton
+      variant="outline"
+      @click="login"
+    >
       Login
-    </button>
+    </SButton>
   </div>
 </template>
 

@@ -4,15 +4,24 @@
   >
     <RouterLink to="/">Home Page</RouterLink>
     <div>
-      <button @click="playerStore.prevTrack">
+      <SButton
+        variant="outline"
+        @click="playerStore.prevTrack"
+      >
         Prev
-      </button>
-      <button @click="toggle">
+      </SButton>
+      <SButton
+        variant="outline"
+        @click="toggle"
+      >
         {{ isPaused ? 'Play' : 'Pause' }}
-      </button>
-      <button @click="playerStore.nextTrack">
+      </SButton>
+      <SButton
+        variant="outline"
+        @click="playerStore.nextTrack"
+      >
         Next
-      </button>
+      </SButton>
     </div>
   </div>
 </template>
