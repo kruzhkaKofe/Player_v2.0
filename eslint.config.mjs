@@ -31,6 +31,7 @@ export default withNuxt({
         code: 120,
         tabWidth: 2,
         ignoreUrls: true,
+        ignoreStrings: true,
       },
     ],
     '@stylistic/multiline-ternary': ['error', 'always-multiline'],
@@ -67,5 +68,8 @@ export default withNuxt({
 
     // typescript
     '@typescript-eslint/no-explicit-any': 'warn',
+
+    // vue
+    'vue/multi-word-component-names': ['off'],
   },
 });
