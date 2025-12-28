@@ -3,9 +3,9 @@ import { fileURLToPath } from 'node:url';
 
 export default defineNuxtConfig({
   extends: [
-    '../layers/auth',
-    '../layers/player',
-    '../layers/ui',
+    './layers/auth',
+    './layers/player',
+    './layers/ui',
   ],
   devtools: { enabled: true },
   app: {
