@@ -46,15 +46,6 @@ export default defineNuxtConfig({
     '#stores': fileURLToPath(new URL('./app/stores', import.meta.url)),
   },
   compatibilityDate: '2025-07-15',
-  typescript: {
-    tsConfig: {
-      compilerOptions: {
-        types: [
-          '@types/spotify-web-playback-sdk',
-        ],
-      },
-    },
-  },
   eslint: {
     config: {
       stylistic: true,
