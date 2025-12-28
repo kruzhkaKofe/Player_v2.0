@@ -7,7 +7,14 @@ export default defineNuxtConfig({
     './layers/player',
     './layers/ui',
   ],
-  devtools: { enabled: true },
+  modules: [
+    '@nuxt/test-utils',
+    '@nuxt/eslint',
+    '@pinia/nuxt',
+  ],
+  devtools: {
+    enabled: true,
+  },
   app: {
     head: {
       title: 'Nuxt Player',
