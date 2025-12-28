@@ -1,15 +1,24 @@
 <template>
   <div>
     <h1>Index Page</h1>
-    <button @click="test">
+    <SButton
+      variant="outline"
+      @click="test"
+    >
       Check Auth
-    </button>
-    <button @click="getMe">
+    </SButton>
+    <SButton
+      variant="outline"
+      @click="getMe"
+    >
       GetMe
-    </button>
-    <button @click="logout">
+    </SButton>
+    <SButton
+      variant="destructive"
+      @click="logout"
+    >
       logout
-    </button>
+    </SButton>
     <RouterLink to="/player">
       to Player
     </RouterLink>
